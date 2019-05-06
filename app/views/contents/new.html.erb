@@ -1,0 +1,21 @@
+<div class= "contents_row">
+  <%= form_for (@content) do |f| %>
+    <ul class = "content-post">
+      <li>
+        <%= f.label "ニックネーム" %>
+        <%= f.text_field :nickname %>
+      </li>
+      <li>
+        <%= f.label "タイトル" %>
+        <%= f.text_field :title %>
+      </li>
+      <li>
+        <%= f.label "内容" %>
+        <%= f.text_area :text %>
+      </li>
+      <li>
+        <%= f.submit %>
+      </li>
+    </ul>
+  <% end %>
+</div>

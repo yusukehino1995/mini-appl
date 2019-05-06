@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mini-appl</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <style type="text/css" href="./style.css"></style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__bar">
+      <h1 class="header-title"><a href="/">Blog</a></h1>
+      <% if user_signed_in? %>
+        <span><%= current_user.name %>
+          <ul class="user__info" style = "float: left">
+            <li>
+              <a href="/users/<%= current_user.id %>">マイページ</a>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        <div class="user-sign-out" style = "float: right">
+          <a class="post" href="/contents/new">投稿する</a>
+        </div>
+      <% else %>
+        <div class="user-sign-in" style = "float: right">
+          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+        </div>
+      <% end %>
+    </div>
+  </header>
+
+    <%= yield %>
+<!-- フッター部分は/vies/kaminariディレクトリに記載あり -->
+<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>

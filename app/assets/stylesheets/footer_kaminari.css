@@ -1,0 +1,7 @@
+.pagination{
+  background-color: #7fc2ef;
+  position: fixed;
+  bottom: 0px;
+  height: 64px;
+  width: 100vw;
+}

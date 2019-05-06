@@ -1,0 +1,8 @@
+<div class="contents_row">
+  <%= form_for (@content) do |form| %>
+    <%= form.text_field :nickname %>
+    <%= form.text_field :title %>
+    <%= form.text_area :text %>
+    <%= form.submit %>
+  <% end %>
+</div>

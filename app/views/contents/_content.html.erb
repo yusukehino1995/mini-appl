@@ -1,0 +1,23 @@
+<div class = "content">
+  <% if user_signed_in? && current_user.id ==content.user_id %>
+    <div class = "more">
+      <ul class="more-list">
+        <li>
+          <%= link_to 'Edit', "/contents/#{content.id}/edit", method: :get %>
+        </li>
+        <li>
+          <%= link_to 'Delete', "/contents/#{content.id}", method: :delete %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+  <div class = "content-title">
+    <p><%= content.title %></p>
+    <% if content.nickname.present? %>
+      <span>投稿者</span><p><%= content.nickname %></p>
+    <% end %>
+  </div>
+  <div class = "content-text">
+    <p><%= simple_format(content.text) %></p>
+  </div>
+</div>
